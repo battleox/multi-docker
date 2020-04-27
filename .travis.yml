@@ -4,20 +4,20 @@ services :
     - docker
 
 before_install:
-    - docker build -t stephengrider/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t battleox/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true stephengrider/react-test npm test
+    - docker run -e CI=true battleox/react-test npm test
 
 after_success:
-    - docker build -t stephengrider/multi-client ./client
-    - docker build -t stephengrider/multi-nginx ./nginx
-    - docker build -t stephengrider/multi-server ./server
-    - docker build -t stephengrider/multi-worker ./worker
+    - docker build -t battleox/multi-client ./client
+    - docker build -t battleox/multi-nginx ./nginx
+    - docker build -t battleox/multi-server ./server
+    - docker build -t battleox/multi-worker ./worker
     #Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     #Take thoses images and push them to docker hub
-    - docker push stephengrider/multi-client
-    - docker push stephengrider/multi-nginx
-    - docker push stephengrider/multi-server
-    - docker push stephengrider/multi-worker
+    - docker push battleox/multi-client
+    - docker push battleox/multi-nginx
+    - docker push battleox/multi-server
+    - docker push battleox/multi-worker
