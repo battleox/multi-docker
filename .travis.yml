@@ -22,15 +22,15 @@ after_success:
     - docker push battleox/multi-server
     - docker push battleox/multi-worker
 
-deploy:
-    edge: true
-    provider: elasticbeanstalk
-    region: us-east-2
-    app: multi-docker
-    env: MultiDocker-env
-    bucket_name: elasticbeanstalk-us-east-2-576804861008
-    bucket_path: docker-multi
-    on:
-        branch: master # pour déclencher tout ça que si l'on pousse qqch sur le master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+# deploy:
+#     edge: true
+#     provider: elasticbeanstalk
+#     region: us-east-2
+#     app: multi-docker
+#     env: MultiDocker-env
+#     bucket_name: elasticbeanstalk-us-east-2-576804861008
+#     bucket_path: docker-multi
+#     on:
+#         branch: master # pour déclencher tout ça que si l'on pousse qqch sur le master
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key: $AWS_SECRET_KEY
